@@ -33,6 +33,196 @@ protoc --version
   - rpc
   - api
 
+
+### Structure
+
+```
+.
+├── Makefile
+├── README.md
+│
+├── go.mod
+├── go.sum
+├── services
+│   ├── address
+│   │   ├── model
+│   │   │   ├── city_model.go
+│   │   │   ├── county_model.go
+│   │   │   ├── province_model.go
+│   │   │   └── vars.go
+│   │   └── rpc
+│   │       ├── Dockerfile
+│   │       ├── address
+│   │       │   └── address.go
+│   │       ├── address.go
+│   │       ├── address.proto
+│   │       ├── etc
+│   │       │   ├── address-local-test.yaml
+│   │       │   └── address.yaml
+│   │       ├── internal
+│   │       │   ├── config
+│   │       │   │   └── config.go
+│   │       │   ├── logic
+│   │       │   │   └── query_provinces_logic.go
+│   │       │   ├── server
+│   │       │   │   └── address_server.go
+│   │       │   └── svc
+│   │       │       └── service_context.go
+│   │       └── pb
+│   │           └── address.pb.go
+│   │       
+│   ├── admin_user
+│   │   ├── api
+│   │   │   ├── Dockerfile
+│   │   │   ├── admin_user.api
+│   │   │   ├── admin_user.go
+│   │   │   ├── etc
+│   │   │   │   └── admin_user.yaml
+│   │   │   ├── internal
+│   │   │   │   ├── config
+│   │   │   │   │   └── config.go
+│   │   │   │   ├── handler
+│   │   │   │   │   └── user_info_handler.go
+│   │   │   │   ├── logic
+│   │   │   │   │   └── user_info_logic.go
+│   │   │   │   ├── svc
+│   │   │   │   │   └── service_context.go
+│   │   │   │   └── types
+│   │   │   │       └── types.go
+│   │   │   └── readme.md
+│   │   └── rpc
+│   │       ├── Dockerfile
+│   │       ├── accountservice
+│   │       │   └── account_service.go
+│   │       ├── admin_user
+│   │       │   └── admin_user.pb.go
+│   │       ├── admin_user.go
+│   │       ├── admin_user.proto
+│   │       ├── etc
+│   │       │   └── admin_user.yaml
+│   │       ├── internal
+│   │       │   ├── config
+│   │       │   │   └── config.go
+│   │       │   ├── logic
+│   │       │   │   └── update_password_logic.go
+│   │       │   ├── server
+│   │       │   │   └── account_service_server.go
+│   │       │   └── svc
+│   │       │       └── service_context.go
+│   │       └── readme.md
+│   ├── alioss
+│   │   ├── api
+│   │   │   ├── Dockerfile
+│   │   │   ├── aliyunoss.api
+│   │   │   ├── aliyunoss.go
+│   │   │   ├── etc
+│   │   │   │   └── config.yaml
+│   │   │   ├── internal
+│   │   │   │   ├── config
+│   │   │   │   │   └── config.go
+│   │   │   │   ├── handler
+│   │   │   │   │   ├── get_auth_token_handler.go
+│   │   │   │   │   └── routes.go
+│   │   │   │   ├── logic
+│   │   │   │   │   └── get_auth_token_logic.go
+│   │   │   │   ├── svc
+│   │   │   │   │   └── service_context.go
+│   │   │   │   └── types
+│   │   │   │       └── types.go
+│   │   │   └── readme.md
+│   │   └── model
+│   │       ├── credentials.go
+│   │       └── sts.go
+│   ├── store
+│   │   ├── api
+│   │   │   ├── Dockerfile
+│   │   │   ├── etc
+│   │   │   │   ├── store_backend.yaml
+│   │   │   │   └── store_local.yaml
+│   │   │   ├── internal
+│   │   │   │   ├── config
+│   │   │   │   │   └── config.go
+│   │   │   │   ├── handler
+│   │   │   │   │   └── update_store_imgs_handler.go
+│   │   │   │   ├── logic
+│   │   │   │   │   └── update_store_imgs_logic.go
+│   │   │   │   ├── svc
+│   │   │   │   │   └── service_context.go
+│   │   │   │   └── types
+│   │   │   │       └── types.go
+│   │   │   ├── readme.md
+│   │   │   ├── store.api
+│   │   │   └── storebackend.go
+│   │   ├── model
+│   │   │   ├── stores_model.go
+│   │   │   └── vars.go
+│   │   └── rpc
+│   │       ├── Dockerfile
+│   │       ├── etc
+│   │       │   └── store.yaml
+│   │       ├── internal
+│   │       │   ├── config
+│   │       │   │   └── config.go
+│   │       │   ├── logic
+│   │       │   │   └── update_store_imgs_logic.go
+│   │       │   ├── server
+│   │       │   │   ├── mq_server.go
+│   │       │   │   └── store_backend_server.go
+│   │       │   └── svc
+│   │       │       └── service_context.go
+│   │       ├── readme.md
+│   │       ├── store
+│   │       │   └── store.pb.go
+│   │       ├── store.go
+│   │       ├── store.proto
+│   │       └── storebackend
+│   │           └── store_backend.go
+│   └── user
+│       ├── api
+│       │   ├── etc
+│       │   │   └── user.yaml
+│       │   ├── internal
+│       │   │   ├── config
+│       │   │   │   └── config.go
+│       │   │   ├── handler
+│       │   │   │   └── user_info_handler.go
+│       │   │   ├── logic
+│       │   │   │   └── user_info_logic.go
+│       │   │   ├── svc
+│       │   │   │   └── service_context.go
+│       │   │   └── types
+│       │   │       └── types.go
+│       │   ├── readme.md
+│       │   ├── user.api
+│       │   └── user.go
+│       ├── model
+│       │   ├── readme.md
+│       │   ├── users_model.go
+│       │   └── vars.go
+│       └── rpc
+│           ├── etc
+│           │   └── user.yaml
+│           ├── internal
+│           │   ├── config
+│           │   │   └── config.go
+│           │   ├── logic
+│           │   │   └── user_update_password_logic.go
+│           │   ├── server
+│           │   │   └── user_server.go
+│           │   └── svc
+│           │       └── service_context.go
+│           ├── readme.md
+│           ├── user
+│           │   └── user.pb.go
+│           ├── user.go
+│           ├── user.proto
+│           └── userclient
+│               └── user.go
+└── test
+    └── etcd.rest
+```
+
+
 ### build command
 - test rpc environment
   ```shell
