@@ -26,17 +26,11 @@ protoc --version
 - rpc service use prefix 90
 - api service use prefix 80
 
-### module list
-- address
-  - rpc
-- store
-  - rpc
-  - api
 
 
 ### Structure
 
-```
+```tree
 .
 ├── Makefile
 ├── README.md
@@ -71,68 +65,6 @@ protoc --version
 │   │       └── pb
 │   │           └── address.pb.go
 │   │       
-│   ├── admin_user
-│   │   ├── api
-│   │   │   ├── Dockerfile
-│   │   │   ├── admin_user.api
-│   │   │   ├── admin_user.go
-│   │   │   ├── etc
-│   │   │   │   └── admin_user.yaml
-│   │   │   ├── internal
-│   │   │   │   ├── config
-│   │   │   │   │   └── config.go
-│   │   │   │   ├── handler
-│   │   │   │   │   └── user_info_handler.go
-│   │   │   │   ├── logic
-│   │   │   │   │   └── user_info_logic.go
-│   │   │   │   ├── svc
-│   │   │   │   │   └── service_context.go
-│   │   │   │   └── types
-│   │   │   │       └── types.go
-│   │   │   └── readme.md
-│   │   └── rpc
-│   │       ├── Dockerfile
-│   │       ├── accountservice
-│   │       │   └── account_service.go
-│   │       ├── admin_user
-│   │       │   └── admin_user.pb.go
-│   │       ├── admin_user.go
-│   │       ├── admin_user.proto
-│   │       ├── etc
-│   │       │   └── admin_user.yaml
-│   │       ├── internal
-│   │       │   ├── config
-│   │       │   │   └── config.go
-│   │       │   ├── logic
-│   │       │   │   └── update_password_logic.go
-│   │       │   ├── server
-│   │       │   │   └── account_service_server.go
-│   │       │   └── svc
-│   │       │       └── service_context.go
-│   │       └── readme.md
-│   ├── alioss
-│   │   ├── api
-│   │   │   ├── Dockerfile
-│   │   │   ├── aliyunoss.api
-│   │   │   ├── aliyunoss.go
-│   │   │   ├── etc
-│   │   │   │   └── config.yaml
-│   │   │   ├── internal
-│   │   │   │   ├── config
-│   │   │   │   │   └── config.go
-│   │   │   │   ├── handler
-│   │   │   │   │   ├── get_auth_token_handler.go
-│   │   │   │   │   └── routes.go
-│   │   │   │   ├── logic
-│   │   │   │   │   └── get_auth_token_logic.go
-│   │   │   │   ├── svc
-│   │   │   │   │   └── service_context.go
-│   │   │   │   └── types
-│   │   │   │       └── types.go
-│   │   │   └── readme.md
-│   │   └── model
-│   │       ├── credentials.go
-│   │       └── sts.go
 │   ├── store
 │   │   ├── api
 │   │   │   ├── Dockerfile
