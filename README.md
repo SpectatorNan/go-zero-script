@@ -172,3 +172,6 @@ protoc --version
   ```shell
   make api-prod m=<module name> v=<version>
   ```
+#### params description
+- module name: the name of the folder on the service folder
+- version: current version num, eg: 1.0.0
